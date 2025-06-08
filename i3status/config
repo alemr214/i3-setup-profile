@@ -1,0 +1,45 @@
+general {
+        colors = true
+        interval = 5
+}
+
+order += "disk /"
+order += "cpu_temperature 1"
+order += "cpu_usage"
+order += "memory"
+order += "volume master"
+order += "time"
+
+disk "/" {
+        format = "Storage: Used: %percentage_used / Free: %percentage_free"
+}
+
+cpu_temperature 1 {
+        format = "CPU %degrees °C"
+        path = "/sys/class/thermal/thermal_zone1/temp"
+        max_threshold = 55
+        format_above_threshold = "Warning T above threshold: %degrees °C"
+}
+
+cpu_usage {
+        format = "CPU Usage: %usage"
+  }
+
+memory {
+        format = "Mem %used"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+volume master {
+    format = "🔊 %volume"
+    format_muted = "🔇 %volume (muted)"
+    device = "default"
+    mixer = "Master"
+}
+
+time {
+        format = "%d-%m-%Y %H:%M"
+}
+
+
