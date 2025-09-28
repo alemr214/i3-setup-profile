@@ -216,7 +216,7 @@ bindsym $mod+Print exec --no-startup-id maim -f png ~/Pictures/$(date +%Y-%m-%d_
 bindsym Ctrl+Shift+s exec --no-startup-id maim -f png --select  | xclip -selection clipboard -t image/png
 
 # Capture active window
-bindsym Print exec --no-startup-id maim -f png -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
+bindsym Print exec --no-startup-id maim -f png -w "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png
 
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
